@@ -1,0 +1,51 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template mod_customcert/email_certificate_html
+
+    The certificate verification result
+
+    Classes required for JS:
+    * None
+
+    Data attibutes required for JS:
+    * All data attributes are required
+
+    Context variables required for this template:
+    * isstudent Are we sending to a student?
+    * isteacher Are we sending to a teacher?
+    * isother Are we sending to an email address specified in the certificate settings?
+    * userfullname The name of the user who owns the certificate.
+    * coursefullname The name of the course.
+    * certificatename The name of the certificate.
+
+    Example context (json):
+    {
+        "isstudent": "true",
+        "isteacher": "false",
+        "isother": "false,
+        "userfullname": "Angus MacGyver",
+        "coursefullname": "Survival as an '80s action hero",
+        "certificatename": "Making a nuclear weapon from a packet of rubber bands"
+    }
+}}
+{$a->student} has received their certificate: '<i>{$a->certificate}</i>'
+for {$a->course}.
+
+You can review it here:
+
+<a href="{$a->url}">Certificate Report</a>.
